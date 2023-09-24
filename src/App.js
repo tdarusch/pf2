@@ -5,11 +5,16 @@ import {
   RouterProvider
 } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
+import Resume from "./Components/Resume/Resume";
 
 const router = createBrowserRouter([
   {
-    path: '',
+    path: '/',
     element: <Landing />
+  },
+  {
+    path: '/resume',
+    element: <Resume />
   }
 ]);
 
