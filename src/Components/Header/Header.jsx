@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, Tab, Box } from '@mui/material'
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const Header = (props) => {
-  const navigate = useNavigate();
+  const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (e, v) => {
-    if(v === 'home') {
-      navigate('/');
-    } else {
-      navigate('/'.concat(v));
-    }
+    setTabValue(v);
   }
 
   return(
     <React.Fragment>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs 
+        <Tabs
+          value={tabValue}
           onChange={handleChange}
           centered
         >
-          <Tab label='home' value='home'/>
-          <Tab label='resume' value='resume'/>
-          <Tab label='projects' value='projects'/>
-          <Tab label='blog' value='blog'/>
-          <Tab label='contact' value='contact'/>
+          <Tab label='home' index={0}  component={Link} to={'/'}/>
+          <Tab label='resume' index={1}  component={Link} to={'/resume'}/>
+          <Tab label='projects' index={2}  component={Link} to={'/projects'}/>
+          <Tab label='blog' index={0}  component={Link} to={'/blog'} />
+          <Tab label='contact' index={0}  component={Link} to={'/contact'} />
         </Tabs>
       </Box>
     </React.Fragment>

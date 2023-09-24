@@ -1,29 +1,31 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import Resume from "./Components/Resume/Resume";
+import Header from "./Components/Header/Header";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Landing />
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
   },
-  {
-    path: '/resume',
-    element: <Resume />
-  }
-]);
+});
 
 function App() {
   return (
     ReactDOM.createRoot(document.getElementById('root')).render(
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <Router>
+          <Header />
+          <Routes>
+            <Route exact path='/' element={<Landing />} />
+            <Route exact path='/resume' element={<Resume />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
     )
   );
 }

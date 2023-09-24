@@ -5,10 +5,9 @@ import { Box } from "@mui/material";
 const Resume = (props) => {
   console.log('test');
   return(
-    <React.Fragment>
-      <Header />
-      <div>resume</div>
-    </React.Fragment>
+    <>
+      resume
+    </>
   );
 };
 
