@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Tabs, Tab, Box } from '@mui/material'
+import { Tabs, Tab, Box, Typography } from '@mui/material'
 import { Link } from "react-router-dom";
 
 
-const Header = (props) => {
+const PageTabs = (props) => {
   const [tabValue, setTabValue] = useState(0);
   const location = useLocation();
 
@@ -43,15 +43,15 @@ const Header = (props) => {
           onChange={handleChange}
           centered
         >
-          <Tab label='home' index={0}  component={Link} to={'/'}/>
-          <Tab label='resume' index={1}  component={Link} to={'/resume'}/>
-          <Tab label='projects' index={2}  component={Link} to={'/projects'}/>
-          <Tab label='blog' index={3}  component={Link} to={'/blog'} />
-          <Tab label='contact' index={4}  component={Link} to={'/contact'} />
+          <Tab label={<Typography variant='h6'>home</Typography>} index={0}  component={Link} to={'/'}/>
+          <Tab label={<Typography variant='h6'>resume</Typography>} index={1}  component={Link} to={'/resume'}/>
+          <Tab label={<Typography variant='h6'>projects</Typography>} index={2}  component={Link} to={'/projects'}/>
+          <Tab label={<Typography variant='h6'>blog</Typography>} index={3}  component={Link} to={'/blog'} />
+          <Tab label={<Typography variant='h6'>contact</Typography>} index={4}  component={Link} to={'/contact'} />
         </Tabs>
       </Box>
     </React.Fragment>
   );
 };
 
-export default Header;
+export default PageTabs;

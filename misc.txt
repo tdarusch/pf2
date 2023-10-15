@@ -1,0 +1,35 @@
+some snippets
+
+jsx:
+
+{
+	"Functional React Component": {
+		"prefix": "bra",
+		"body": [
+			"import React from 'react';",
+			"",
+			"const ${TM_FILENAME_BASE} = () => {",
+			"\t",
+			"\treturn(",
+			"\t\t<>"
+			"\t\t\t$1",
+			"\t\t</>"
+			"\t);",
+			"};",
+			"",
+			"export default ${TM_FILENAME_BASE};"
+		]
+		"description": "Generates functional react component"
+	}
+
+	"useEffect Hook": {
+		"prefix": "uef",
+		"body": [
+			"useEffect(() => {",
+			"\t$1"
+			"}, []);"
+		]
+		"description": "Generates empty useEffect hook"
+	}
+}
+

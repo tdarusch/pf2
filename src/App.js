@@ -6,7 +6,7 @@ import Resume from "./Pages/Resume/Resume";
 import Projects from "./Pages/Projects/Projects";
 import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
-import Header from "./Components/Header/Header";
+import PageTabs from "./Components/PageTabs/PageTabs";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -22,7 +22,7 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Router>
-          <Header />
+          <PageTabs />
           <Routes>
             <Route exact path='/' element={<Landing />} />
             <Route exact path='/resume' element={<Resume />} />
