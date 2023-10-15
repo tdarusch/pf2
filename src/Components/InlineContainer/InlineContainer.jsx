@@ -8,7 +8,7 @@ const InlineContainer = (props) => {
       display='flex'
       justifyContent={props?.justify || 'center'}
       width='100%'
-      my={.5}
+      my={props?.verticalMargin || .5}
       sx={{userSelect: 'none'}}
       {...props}
     >

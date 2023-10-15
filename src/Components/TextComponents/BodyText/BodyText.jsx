@@ -10,6 +10,7 @@ const BodyText = (props) => {
       <Typography 
         variant={props?.variant || 'body1'}
         sx={{userSelect: 'none'}}
+        textAlign={props?.justify || 'left'}
         {...props}
       >
         {props?.text || props.children}

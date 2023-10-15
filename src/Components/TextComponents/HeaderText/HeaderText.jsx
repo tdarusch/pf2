@@ -6,6 +6,7 @@ const HeaderText = (props) => {
   return(
     <InlineContainer
       justify={props?.justify || 'left'}
+      verticalMargin={props?.noMargin === true ? 0 : 0.5}
     >
       <Typography 
         variant={props?.variant || 'h3'}

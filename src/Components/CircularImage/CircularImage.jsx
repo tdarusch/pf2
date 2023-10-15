@@ -7,7 +7,13 @@ const CircularImage = (props) => {
     <Box
       component='img'
       borderRadius={45}
-      sx={{userSelect: 'none'}}
+      sx={{
+        userSelect: 'none', 
+        border: props?.showBorder === true ? 1 : 0,
+        borderColor: 'divider'
+      }}
+      maxWidth={props?.size || 'auto'}
+      maxHeight={props?.size || 'auto'}
       {...props}
     />
   );

@@ -19,8 +19,11 @@ const PageContainer = (props, justify) => {
         justifyContent={props?.justify || 'center'}
         flexDirection='column'
         height='auto'
-        borderRadius='15px'
-        sx={{backgroundColor: '#1a1a1a'}}
+        borderRadius={props?.transparent === true ? 0 : '15px'}
+        sx={{
+          backgroundColor: props?.transparent === true ? '#121212' : '#1a1a1a', 
+          border: props?.showBorder === true ? 1 : 0, 
+          borderColor: 'divider'}}
         padding={3}
       >
         {props.children}
