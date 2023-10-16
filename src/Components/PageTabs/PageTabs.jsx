@@ -11,10 +11,15 @@ import FadeIn from "../FadeIn/FadeIn";
 
 const PageTabs = (props) => {
   const [tabValue, setTabValue] = useState(0);
+  const [hideSelection, setHideSelection] = useState(true);
   const location = useLocation();
 
   const handleChange = (e, v) => {
     setTabValue(v);
+  }
+
+  const handleEnter = () => {
+    setHideSelection(false);
   }
 
   useEffect(() => {
@@ -80,12 +85,17 @@ const PageTabs = (props) => {
               onChange={handleChange}
               sx={{height: '35px'}}
               width='500px'
+              TabIndicatorProps={{
+                style: {
+                  display: hideSelection === true ? 'none' : 'inherit'
+                }
+              }}
             >
-              <FadeIn in timeout={{ enter: 500 }} delay={700}>
+              <FadeIn in timeout={{ enter: 500 }} delay={700} onEnter={handleEnter}>
                 <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>home</Typography>} index={0}  component={Link} to={'/'}/>
               </FadeIn>
               <FadeIn in timeout={{ enter: 500 }} delay={800}>
-                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>resume</Typography>} index={1}  component={Link} to={'/resume'}/>
+                <Tab disableRipple  sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>resume</Typography>} index={1}  component={Link} to={'/resume'}/>
               </FadeIn>
               <FadeIn in timeout={{ enter: 500 }} delay={900}>
                 <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>projects</Typography>} index={2}  component={Link} to={'/projects'}/>

@@ -1,11 +1,12 @@
 import React from "react";
-import PageContainer from "../../Components/PageContainer/PageContainer";
+// import PageContainer from "../../Components/PageContainer/PageContainer";
 
 const Blog = (props) => {
   return(
-    <PageContainer>
-      blog
-    </PageContainer>
+    // <PageContainer>
+    //   blog
+    // </PageContainer>
+    <></>
   );
 };
 

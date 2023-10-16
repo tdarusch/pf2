@@ -17,6 +17,7 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  const [animated, setAnimated] = React.useState(false);
   return (
     ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider theme={darkTheme}>
@@ -24,7 +25,7 @@ function App() {
         <Router>
           <PageTabs />
           <Routes>
-            <Route exact path='/' element={<Landing />} />
+            <Route exact path='/' element={<Landing animated={animated} setAnimated={setAnimated}/>} />
             <Route exact path='/resume' element={<Resume />} />
             <Route exact path='/projects' element={<Projects />} />
             <Route exact path='/blog' element={<Blog />} />

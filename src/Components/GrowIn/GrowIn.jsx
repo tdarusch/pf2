@@ -6,7 +6,7 @@ const GrowIn = ({
   in: In = true,
   timeout = 1000,
   delay = 0,
-  onExit
+  onEnter
 }) => {
   const [isIn, setIsIn] = useState(In && delay === 0)
 
@@ -17,7 +17,7 @@ const GrowIn = ({
   })
 
   return (
-     <Grow in={isIn} timeout={timeout} onAnimationEnd={onExit}>
+     <Grow in={isIn} timeout={timeout} onEntered={onEnter}>
         {children}
      </Grow>
   )
