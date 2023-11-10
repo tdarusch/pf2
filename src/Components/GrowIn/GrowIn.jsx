@@ -6,21 +6,34 @@ const GrowIn = ({
   in: In = true,
   timeout = 1000,
   delay = 0,
-  onEnter
+  onEntered,
+  animated
 }) => {
   const [isIn, setIsIn] = useState(In && delay === 0)
-
+   console.log(animated);
   useEffect(() => {
      if (delay > 0) {
         setTimeout(() => setIsIn(true), delay)
      }
   })
 
-  return (
-     <Grow in={isIn} timeout={timeout} onEntered={onEnter}>
-        {children}
-     </Grow>
-  )
+  if(!animated) {
+     return (
+        <Grow 
+         in={isIn} 
+         timeout={timeout} 
+         onEntered={onEntered}
+      >
+           {children}
+        </Grow>
+     )
+  } else {
+   return(
+      <>
+         {children}
+      </>
+   )
+  }
 }
 
 export default GrowIn;

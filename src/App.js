@@ -23,9 +23,9 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <Router>
-          <PageTabs />
+          <PageTabs animated={animated} setAnimated={setAnimated}/>
           <Routes>
-            <Route exact path='/' element={<Landing animated={animated} setAnimated={setAnimated}/>} />
+            <Route exact path='/' element={<Landing animated={animated}/>} />
             <Route exact path='/resume' element={<Resume />} />
             <Route exact path='/projects' element={<Projects />} />
             <Route exact path='/blog' element={<Blog />} />

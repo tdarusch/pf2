@@ -6,7 +6,8 @@ const FadeIn = ({
   in: In = true,
   timeout = 1000,
   delay = 0,
-  onEnter
+  onEnter,
+  endListener
 }) => {
   const [isIn, setIsIn] = useState(In && delay === 0)
 
@@ -17,7 +18,7 @@ const FadeIn = ({
   })
 
   return (
-     <Fade in={isIn} timeout={timeout} onEntered={onEnter}>
+     <Fade in={isIn} timeout={timeout} onEntered={onEnter} addEndListener={endListener}>
         {children}
      </Fade>
   )

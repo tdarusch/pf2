@@ -103,7 +103,7 @@ const PageTabs = (props) => {
               <FadeIn in timeout={{ enter: 500 }} delay={1000}>
                 <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>blog</Typography>} index={3}  component={Link} to={'/blog'} />
               </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={1100}>
+              <FadeIn in timeout={{ enter: 500 }} delay={1100} endListener={props.setAnimated(true)}>
                 <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='h6' fontFamily='Oswald'>contact</Typography>} index={4}  component={Link} to={'/contact'} />
               </FadeIn>
             </Tabs>
