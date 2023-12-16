@@ -10,7 +10,8 @@ const CircularImage = (props) => {
       sx={{
         userSelect: 'none', 
         border: props?.showBorder === true ? 1 : 0,
-        borderColor: 'divider'
+        borderColor: 'divider',
+        opacity: 0.5
       }}
       maxWidth={props?.size || 'auto'}
       maxHeight={props?.size || 'auto'}

@@ -2,19 +2,18 @@ import React from "react";
 import Box from '@mui/material/Box';
 
 
-const PageContainer = (props, justify) => {
+const PageContainer = (props) => {
   return(
     <Box 
       display='flex' 
       justifyContent='center' 
-      minWidth='2000px'
       height='auto'
       margin='20px 0 0 0'
       sx={{userSelect: 'none'}}
     >
       <Box 
-        width='2000px'
-        minWidth='2000px'
+        width='1500px'
+        minWidth='1500px'
         display='flex'
         justifyContent={props?.justify || 'center'}
         flexDirection='column'
