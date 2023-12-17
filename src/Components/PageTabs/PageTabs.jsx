@@ -8,6 +8,8 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import "@fontsource/oswald";
 import FadeIn from "../FadeIn/FadeIn";
 import TextButton from "../TextButton/TextButton";
+import { titles } from "../../Assets/Titles";
+import TypingText from "../TypingText/TypingText";
 
 
 const PageTabs = (props) => {
@@ -63,8 +65,8 @@ const PageTabs = (props) => {
             </FadeIn>
             <Box display='flex' justifyContent='center' >
               <FadeIn in timeout={{ enter: 500 }} delay={250}>
-                <Box display='flex' flexDirection='column' justifyContent='center' mr={2} ml={1}>
-                  <Typography sx={{userSelect: 'none'}} variant='body1'>Software Engineer</Typography>
+                <Box display='flex' flexDirection='column' justifyContent='top' mr={1} ml={1} width={160}>
+                  <TypingText text={titles} />
                 </Box>
               </FadeIn>
               <FadeIn in timeout={{ enter: 500 }} delay={300}>
