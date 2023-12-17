@@ -12,8 +12,8 @@ const PageContainer = (props) => {
       sx={{userSelect: 'none'}}
     >
       <Box 
-        width='1500px'
-        minWidth='1500px'
+        minWidth='70vw'
+        maxWidth='1500px'
         display='flex'
         justifyContent={props?.justify || 'center'}
         flexDirection='column'

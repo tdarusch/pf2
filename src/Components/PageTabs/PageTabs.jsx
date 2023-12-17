@@ -49,8 +49,8 @@ const PageTabs = (props) => {
 
   return(
     <React.Fragment>
-      <Box display='flex' justifyContent='center' my={5} minWidth={1500}>
-        <Box display='flex' justifyContent='space-between' minWidth={1500}>
+      <Box display='flex' justifyContent='center' my={5} width='100vw'>
+        <Box display='flex' justifyContent='space-between' width='90vw' minWidth={800}>
           <Box width={400} display='flex' flexDirection='column'>
             <FadeIn in timeout={{ enter: 500 }} delay={100}>
               <Box display='flex' justifyContent='center' mt={0} mb={1}>
