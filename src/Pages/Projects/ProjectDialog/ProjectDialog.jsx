@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Box, Typography } from '@mui/material';
 import FormikTextField from '../../../Components/FormikTextField/FormikTextField';
 import { useFormik } from 'formik';
+import { yupSchema } from './validationSchema';
 
 const initialValues = {
   title: '',
@@ -10,20 +11,15 @@ const initialValues = {
   link: ''
 };
 
-const ProjectDialog = ({ open, project=initialValues, handleSubmit, handleCancel, handleDelete }) => {
-  const [currentProject, setCurrentProject] = useState(project);
-
+const ProjectDialog = ({ open, project, handleSubmit, handleCancel, handleDelete }) => {
   const formik = useFormik({
-    initialValues: currentProject,
+    initialValues: project || initialValues,
+    enableReinitialize: true,
+    validationSchema: yupSchema,
     onSubmit: (values) => {
       handleSubmit(values);
     }
   });
-
-  useEffect(() => {
-    console.log(project);
-    setCurrentProject(project);
-  }, [project]);
 
   return(
     <Dialog open={open} fullWidth>

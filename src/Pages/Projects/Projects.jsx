@@ -27,13 +27,13 @@ const Projects = (props) => {
   }
 
   const handleEdit = (index) => {
-    console.log(testProjects[index]);
+    console.log(index);
     setProject(testProjects[index]);
     handleDialogOpen();
   }
 
   const handleDelete = (index) => {
-    //todo
+    //todos
   }
 
   return(

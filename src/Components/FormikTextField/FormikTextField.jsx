@@ -2,7 +2,6 @@ import { TextField } from '@mui/material';
 import React from 'react';
 
 const FormikTextField = (props) => {
-  
   return(
     <TextField
       fullWidth
@@ -13,6 +12,7 @@ const FormikTextField = (props) => {
       onChange={props.formik.handleChange}
       onBlur={props.formik.handleBur}
       helperText={props.helperText || ''}
+      error={props.formik.errors[props.name]}
       {...props}
     />
   );
