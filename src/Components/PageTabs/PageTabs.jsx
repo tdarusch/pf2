@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import { Tabs, Tab, Box, Typography, IconButton } from '@mui/material'
+import { Tabs, Tab, Box, Typography, IconButton, Grid, Hidden } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -14,6 +14,7 @@ import TypingText from "../TypingText/TypingText";
 
 const PageTabs = (props) => {
   const [tabValue, setTabValue] = useState(0);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,14 +35,17 @@ const PageTabs = (props) => {
       case '/projects':
         setTabValue(1);
         break;
-      case '/blog':
+      case '/lab':
         setTabValue(2);
         break;
-      case '/contact':
+      case '/blog':
         setTabValue(3);
         break;
-      case '/login':
+      case '/contact':
         setTabValue(4);
+        break;
+      case '/login':
+        setTabValue(5);
         break;
       default:
         setTabValue(-1);
@@ -50,48 +54,10 @@ const PageTabs = (props) => {
   }, [location.pathname]);
 
   return(
-    <React.Fragment>
-      <Box display='flex' justifyContent='center' my={5} width='100vw'>
-        <Box display='flex' justifyContent='space-between' width='90vw' minWidth={800}>
-          <Box width={400} display='flex' flexDirection='column'>
-            <FadeIn in timeout={{ enter: 500 }} delay={100}>
-              <Box display='flex' justifyContent='center' mt={0} mb={1}>
-                <TextButton 
-                  fontSize={35}
-                  text='T. Daniel Aleksi Rusch'
-                  onClick={routeHome}
-                />
-              </Box>
-            </FadeIn>
-            <Box display='flex' justifyContent='center' >
-              <FadeIn in timeout={{ enter: 500 }} delay={250}>
-                <Box display='flex' flexDirection='column' justifyContent='top' mr={1} ml={1} width={160}>
-                  <TypingText text={titles} />
-                </Box>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={300}>
-                <IconButton size='medium'component={Link} to="https://github.com/tdarusch" target="_blank">
-                  <GitHubIcon/>
-                </IconButton>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={400}>
-                <IconButton size='medium' component={Link} to="https://www.linkedin.com/in/tommy-rusch-4030901b0/" target="_blank">
-                  <LinkedInIcon/>
-                </IconButton>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={500}>
-                <IconButton size='medium' component={Link} to="" target="_blank">
-                  <DescriptionIcon/>
-                </IconButton>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={600}>
-                <IconButton size='medium' component={Link} to="mailto:trusch@augusta.edu">
-                  <EmailIcon/>
-                </IconButton>
-              </FadeIn>
-            </Box>
-          </Box>
-          <Box display='flex' flexDirection='column' justifyContent='center' >
+    <Grid container>
+      <Grid item xs={12} direction='row' justifyContent='center' alignItems='center'>
+        <Hidden lgUp>
+          <Box display='flex' justifyContent='center'>
             <Tabs
               value={tabValue}
               onChange={handleChange}
@@ -102,34 +68,104 @@ const PageTabs = (props) => {
                   borderBottom: 2
                 }
               }}
-              width='500px'
               TabIndicatorProps={{
                 style: {
                   display: location.pathname === '/' ? 'none' : 'inherit',
                   backgroundColor: '#FFF'
                 }
               }}
+              variant='scrollable'
+              scrollButtons='auto'
             >
-              <FadeIn in timeout={{ enter: 500 }} delay={700}>
-                <Tab disableRipple  sx={{margin: '0 10px'}} label={<Typography variant='body1' >resume</Typography>} index={0}  component={Link} to={'/resume'}/>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={800}>
-                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >projects</Typography>} index={1}  component={Link} to={'/projects'}/>
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={900}>
-                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >blog</Typography>} index={2}  component={Link} to={'/blog'} />
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={1000}>
-                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >contact</Typography>} index={3}  component={Link} to={'/contact'} />
-              </FadeIn>
-              <FadeIn in timeout={{ enter: 500 }} delay={1100}>
-                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >login</Typography>} index={4}  component={Link} to={'/login'} />
-              </FadeIn>
+              <Tab disableRipple  sx={{margin: '0 10px'}} label={<Typography variant='body1' >resume</Typography>} index={0}  component={Link} to={'/resume'}/>
+              <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >projects</Typography>} index={1}  component={Link} to={'/projects'}/>
+              <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >lab</Typography>} index={2}  component={Link} to={'/lab'} />
+              <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >blog</Typography>} index={3}  component={Link} to={'/blog'} />
+              <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >contact</Typography>} index={4}  component={Link} to={'/contact'} />
+              <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >login</Typography>} index={5}  component={Link} to={'/login'} />
             </Tabs>
           </Box>
-        </Box>
-      </Box>
-    </React.Fragment>
+        </Hidden>
+      </Grid>
+      <Grid item xs={12} md={5}>
+        <Hidden lgDown>
+          <Box display='flex' justifyContent='center' mt={1}>
+            <Box width={400} display='flex' flexDirection='column'>
+              <FadeIn in timeout={{ enter: 500 }} delay={100}>
+                <Box display='flex' justifyContent='center' mt={0} mb={1}>
+                  <TextButton 
+                    fontSize={35}
+                    text='T. Daniel Aleksi Rusch'
+                    onClick={routeHome}
+                  />
+                </Box>
+              </FadeIn>
+              <Box display='flex' justifyContent='center' >
+                <FadeIn in timeout={{ enter: 500 }} delay={250}>
+                  <Box display='flex' flexDirection='column' justifyContent='top' mr={1} ml={1} width={160}>
+                    <TypingText text={titles} />
+                  </Box>
+                </FadeIn>
+                <FadeIn in timeout={{ enter: 500 }} delay={300}>
+                  <IconButton size='medium'component={Link} to="https://github.com/tdarusch" target="_blank">
+                    <GitHubIcon/>
+                  </IconButton>
+                </FadeIn>
+                <FadeIn in timeout={{ enter: 500 }} delay={400}>
+                  <IconButton size='medium' component={Link} to="https://www.linkedin.com/in/tommy-rusch-4030901b0/" target="_blank">
+                    <LinkedInIcon/>
+                  </IconButton>
+                </FadeIn>
+                <FadeIn in timeout={{ enter: 500 }} delay={500}>
+                  <IconButton size='medium' component={Link} to="" target="_blank">
+                    <DescriptionIcon/>
+                  </IconButton>
+                </FadeIn>
+                <FadeIn in timeout={{ enter: 500 }} delay={600}>
+                  <IconButton size='medium' component={Link} to="mailto:trusch@augusta.edu">
+                    <EmailIcon/>
+                  </IconButton>
+                </FadeIn>
+              </Box>
+            </Box>
+          </Box>
+        </Hidden>
+      </Grid>
+      <Grid item xs={12} md={7}>
+        <Hidden lgDown>
+          <Box display='flex' justifyContent='center'>
+            <Box display='flex' flexDirection='column' justifyContent='center' marginTop={3}>
+              <Tabs
+                value={tabValue}
+                onChange={handleChange}
+                sx={{
+                  height: '35px', 
+                  marginRight: '10px',
+                  '&..MuiTabs-indicator:hover': {
+                    borderBottom: 2
+                  }
+                }}
+                TabIndicatorProps={{
+                  style: {
+                    display: location.pathname === '/' ? 'none' : 'inherit',
+                    backgroundColor: '#FFF'
+                  }
+                }}
+                variant="scrollable"
+                scrollButtons="auto"
+              >
+                <Tab disableRipple  sx={{margin: '0 10px'}} label={<Typography variant='body1' >resume</Typography>} index={0}  component={Link} to={'/resume'}/>
+                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >projects</Typography>} index={1}  component={Link} to={'/projects'}/>
+                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >lab</Typography>} index={2}  component={Link} to={'/lab'} />
+                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >blog</Typography>} index={3}  component={Link} to={'/blog'} />
+                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >contact</Typography>} index={4}  component={Link} to={'/contact'} />
+                <Tab disableRipple sx={{margin: '0 10px'}} label={<Typography variant='body1' >login</Typography>} index={5}  component={Link} to={'/login'} />
+              </Tabs>
+            </Box>
+          </Box>
+        </Hidden>
+      </Grid>
+    </Grid>
   );
 };
 

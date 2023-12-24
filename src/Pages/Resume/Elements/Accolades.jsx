@@ -1,37 +1,31 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 
 const Accolades = ({ accolades }) => {
   
   return(
-    <Box>
+    <Grid container>
       {accolades.map((acc, i) => {
         return(
-          <Box display='flex' justifyContent='center' my={3}>
-            <Box display='flex' justifyContent='left'>
-              <Box display='flex' flexDirection='column' justifyContent='top' width={1400}>
-                <Box display='flex' justifyContent='space-between'>
+          <Grid item xs={12} marginY={1} key={i}>
+            <Box display='flex' justifyContent='left' flexBasis='auto'>
+              <Box display='flex' flexDirection='column' justifyContent='top' flexGrow={1}>
+                <Box display='flex' justifyContent='space-between' flexGrow={1}>
                   <Typography fontSize={20}>{acc.title}</Typography>
                   <Box display='flex' flexDirection='column' justifyContent='center'>
                     <Typography fontSize={15}>{acc.year}</Typography>
                   </Box>
                 </Box>
                 <Box>
-                  <Typography fontSize={15}>{acc.institution}</Typography>
+                  <Typography fontSize={17.5}>{acc.institution}</Typography>
                   <Typography fontSize={15}>{acc.description}</Typography>
                 </Box>
               </Box>
             </Box>
-          </Box>
-          // <Grid item xs={3} key={i}>
-          //   <Box display='flex' flexDirection='column' justifyContent='top'>
-          //     <Typography textAlign='center' fontSize={20}>{skill.title}</Typography>
-          //     <Typography textAlign='center' fontSize={15}>{skill.description}</Typography>
-          //   </Box>
-          // </Grid>
+          </Grid>
         )
       })}
-    </Box>
+    </Grid>
   );
 };
 

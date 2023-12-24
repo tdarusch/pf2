@@ -7,7 +7,7 @@ const Skills = ({ skills }) => {
     <Grid container spacing={2} justifyContent='center'>
         {skills.map((skill, i) => {
           return(
-            <Grid item xs={3} key={i}>
+            <Grid item xs={12} md={4} key={i}>
               <Box display='flex' flexDirection='column' justifyContent='top'>
                 <Typography textAlign='center' fontSize={20}>{skill.title}</Typography>
                 <Typography textAlign='center' fontSize={15}>{skill.description}</Typography>
