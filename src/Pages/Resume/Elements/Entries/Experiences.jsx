@@ -13,7 +13,7 @@ const Experiences = ({ experiences }) => {
                 <Box display='flex' justifyContent='space-between' flexGrow={1}>
                   <Typography fontSize={20}>{exp.title}</Typography>
                   <Box display='flex' flexDirection='column' justifyContent='center'>
-                    <Typography fontSize={15}>{`${exp.startDate}-${exp.endDate}`}</Typography>
+                    <Typography fontSize={15}>{`${exp.startDate}-${exp.endDate || 'Present'}`}</Typography>
                   </Box>
                 </Box>
                 <Box>

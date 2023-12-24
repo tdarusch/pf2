@@ -50,7 +50,8 @@ const ProjectDialog = ({ open, project, handleSubmit, handleCancel, handleDelete
               label='Description'
               formik={formik}
               multiline
-              minRows={6}
+              minRows={10}
+              maxRows={10}
             />
           </Box>
           <Box display='flex' justifyContent='center' m={2}>

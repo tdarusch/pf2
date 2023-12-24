@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Divider, IconButton } from '@mui/material';
+import { Box, Typography, Divider, IconButton, Hidden, Grid } from '@mui/material';
 import { Link } from "react-router-dom";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import EditIcon from '@mui/icons-material/Edit';
@@ -9,29 +9,65 @@ import TextButton from '../../../Components/TextButton/TextButton';
 const ProjectEntry = ({ title, dateRange, description, link='', isAdmin=true, handleDelete, handleEdit, index }) => {
   
   return(
-    <Box display='flex' flexDirection='column' my={2} px={2} pb={1} sx={{borderLeft: 3, borderColor: 'divider'}}>
-      <Box display='flex' justifyContent='space-between' >
-        <Box display='flex' justifyContent='left'>
-          <Typography fontSize={25} mr={2}>{title}</Typography>
-          {isAdmin &&
-            <>
-              <Box>
-                <IconButton onClick={() => {handleEdit(index)}}>
-                  <EditIcon />
-                </IconButton>
+    <Box display='flex' flexDirection='column' my={2} px={2} pb={1}>
+      <Grid container>
+        <Hidden smDown>
+          <Grid item sm={6}>
+            <Box display='flex' justifyContent='left'>
+              <Typography fontSize={25} mr={2}>{title}</Typography>
+              {isAdmin &&
+                <>
+                  <Box>
+                    <IconButton onClick={() => {handleEdit(index)}}>
+                      <EditIcon />
+                    </IconButton>
+                  </Box>
+                  <Box>
+                    <IconButton onClick={() => {handleDelete(index)}}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Box>
+                </>
+              }
+            </Box>
+          </Grid>
+            <Grid item sm={6}>
+              <Box display='flex' justifyContent='right'>
+                <Box display='flex' flexDirection='column' justifyContent='center' pt={0.5}>
+                  <Typography>{`( ${dateRange} )`}</Typography>
+                </Box>
               </Box>
-              <Box>
-                <IconButton onClick={() => {handleDelete(index)}}>
-                  <DeleteIcon />
-                </IconButton>
+            </Grid>
+        </Hidden>
+        <Hidden smUp>
+          <Grid item xs={12}>
+            <Box display='flex' justifyContent='center'>
+              <Typography fontSize={25} mr={2}>{title}</Typography>
+              {isAdmin &&
+                <>
+                  <Box>
+                    <IconButton onClick={() => {handleEdit(index)}}>
+                      <EditIcon />
+                    </IconButton>
+                  </Box>
+                  <Box>
+                    <IconButton onClick={() => {handleDelete(index)}}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Box>
+                </>
+              }
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box display='flex' justifyContent='center'>
+              <Box display='flex' flexDirection='column' justifyContent='center' pt={0.5}>
+                <Typography>{`( ${dateRange} )`}</Typography>
               </Box>
-            </>
-          }
-        </Box>
-        <Box display='flex' flexDirection='column' justifyContent='center' pt={0.5}>
-          <Typography>{`( ${dateRange} )`}</Typography>
-        </Box>
-      </Box>
+            </Box>
+          </Grid>
+        </Hidden>
+      </Grid>
       <Box my={0.5}>
         <Divider variant='fullWidth' />
       </Box>
